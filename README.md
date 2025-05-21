@@ -34,3 +34,5 @@ apptainer pull docker://quay.io/jeani/jupytergis-ood:latest
 # For use on https://apps.betzy.sigma2.no
 
 Proceed as above but use the content of the `Betzy` folder instead of `Educloud` (to configure the batch script and submission arguments for job execution accordingly).
+
+![JupyterGIS on_Betzy](screenshot-betzy.png)
