@@ -4,13 +4,18 @@ category: Interactive Apps
 subcategory: Jupyter
 role: batch_connect
 description: |
-        This app will launch JupyterGIS on Fox.
+  This app launches a **JupyterGIS** instance using a [container image](https://quay.io/repository/jeani/jupytergis-ood), **it does not use any of the modules installed on the host**.
 
-        JupyterGIS combines Jupyter notebooks with the capabilities normally offered by a GIS (Geographic Information System).
-       
-        It also comes with a feature called RTC (Real-Time Collaboration) for multiple users to simultaneously work on the same code. 
-        
-        Perform geospatial analysis and visualize geographic data interactively with colleagues.
+  JupyterGIS is a collaborative GIS editor developed through a [project](https://blog.jupyter.org/jupytergis-d63b7adf9d0c) funded by the European Space Agency (ESA) with [QuantStack](https://quantstack.net) and [Simula Research Laboratory](https://www.simula.no). It integrates Jupyter Notebooks with Geographic Information System (GIS) capabilities, enabling geospatial analysis and visualization.
+  
+  It also comes with a feature called Real-Time Collaboration (RTC) which **allows multiple users to work** on the same Jupyter GIS project file (.jGIS) or iPython notebook (.ipynb) **simultaneously**. Watch a [demo video](https://www.youtube.com/watch?v=ZXV2--Afu30&t=90s) (starts at 1:30).
+
+  **Share your session with colleagues:**  
+  1. From the *JupyterLab* page, click on the share icon in the top-right of the screen to generate a **link**.  
+  2. From the *OnDemand* page, click on the "Session ID", then open `connection.yml`, and copy the **password**.  
+  3. Send the link and password to **trusted colleagues** for interactive collaboration on geospatial analysis and notebook development.
+
 tile:
   sub_caption: "JupyterGIS"
 icon: "$HOME/ondemand/dev/JupyterGIS/icon.png"
+---

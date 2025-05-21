@@ -1,0 +1,55 @@
+---
+cluster: "betzy"
+attributes:
+  bc_account:
+    widget: select
+    label: "Project Account"
+    help: "Select your project account (e.g., nn1234k)"
+    options:
+      <% 
+        output = `sacctmgr show assoc user=$USER -p`
+        accounts = output.split("\n").map { |line| line.split("|")[1] }.uniq.reject { |acc| acc.empty? || acc == "Account" }
+        if accounts.empty?
+      %>
+      - [ "No accounts available", "" ]
+      <% else %>
+      <% accounts.each do |account| %>
+      - [ "<%= account %>", "<%= account %>" ]
+      <% end %>
+      <% end %>
+  partition_queue:
+    widget: select
+    label: Partition
+    help: "Choose a partition. Node count is automatically set to 1 for preproc/ood, 4 for normal."
+    options:
+      - [ "preproc", "preproc" ]
+      - [ "ood", "ood" ]
+      - [ "normal", "normal" ]
+  num_hosts:
+    # Node count is fixed: 1 for ood/preproc partitions, 4 for normal partition, enforced in submit.yml.erb
+    widget: hidden
+    value: 1  # Default, overridden in submit.yml.erb
+  num_cores:
+    widget: number_field
+    label: "Total number of cores"
+    value: 2
+    min: 1
+    step: 1
+  bc_num_hours:
+    widget: number_field
+    label: "Number of hours"
+    value: 4
+    min: 1
+    step: 1
+  memory:
+    widget: number_field
+    label: "Memory (in GB)"
+    value: 8
+    min: 1
+    step: 1
+form:
+  - bc_account
+  - partition_queue
+  - num_cores
+  - bc_num_hours
+  - memory

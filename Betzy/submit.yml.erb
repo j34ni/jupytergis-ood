@@ -1,0 +1,11 @@
+batch_connect:
+  template: "basic"
+
+script:
+  native:
+    - "--nodes=<%= partition_queue == 'normal' ? 4 : 1 %>"
+    - "--ntasks=<%= num_cores %>"
+    - "--time=<%= bc_num_hours %>:00:00"
+    - "--mem=<%= memory %>G"
+    - "--account=<%= bc_account %>"
+    - "--partition=<%= partition_queue %>"
